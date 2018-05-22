@@ -1,0 +1,79 @@
+Categories: genetic algorithms
+Tags: algorithms
+      genetic
+      phenotype
+      genotype
+      mutation
+
+## Reference ##
+
+- Genetic Programming using Genotype-Phenotype Mapping from Linear Genomes into Linear Phenotypes, Robert E. Keller, Wolfgang Banzhaf,
+  University of Dortmund, Department of Computer Science.
+
+## Quotes ##
+
+- Common GP approaches do not distinguish between a genotype (i.e. a point in search space) and its phenotype (i.e. a point in solution space), that is the search space and solution space are identifical.
+- Genotype Phenotype Method (GPM) needed which maps an arbitrary search point onto a solution point.
+- The large regions of the search space - which equals the solution space - are infeasible, thereby presenting a twofold problem to common GP approaches.
+  - Large potential of genetic diversity existing in the infeasible regions is not accessible.
+  - GP tries to wander from good to better individuals, and infeasible regions force it to detour.
+- For GP:
+  - Search space equals the set of all genotypes, legal and illegal.
+  - A GPM maps each genotype into a legal phenotype, thereby matching the syntactical constraint.
+
+- Process:
+  - A binary string (genotype) get transcribed into a raw sequence of symbols (transcription).
+  - Each symbol is an element of either the function or the terminal set which both underlie a genetic-programming approach.
+  - The raw sequence gets corrected, if necessary, according to the syntax of the used programming language, thus yielding a legal symbol sequence (repairing).
+  - Editing turns this sequence into an edited symbol sequence by adding standard information (e.g. main program frame).
+  - Last phase, compilation of the edited symbol sequence, transforming  sequence into a machine language program that can be executed in order to evaluate the fitness.
+
+- Legal symbol sequence corresponds to a protein.
+- Since amino acids are essentially components of a protein, an amino acid corresponds to a symbol.
+
+- Codon is a bit sequence of b bits length which encodes a symbol.
+  - In order to provide for unique encoding of all symbols, b must be chosen st for each symbol there is at least 1 codon which encodes this and only this symbol.
+  - e.g. for 20 symbols, b >= 5 is a proper value since 2^b is greater than 20.
+  - Genotype then consists of n codons.
+  - Arbitrary mapping M from the set of codons into the set of symbols can then be defined.
+  - M defines the encoding of symbols by codons (M is analogous to the genetic code in molecular biology).
+  - Natural genetic code is the mapping from codons to amino acids.
+    - This code is highly redundant. i.e. there are many different codons which encode the same amino acid.
+    - In example, each codon assigned index.
+
+- When parsing a raw sequence, it is highly probable that an illegal symbol s will be scanned.
+  - Legal symbol set can be computed with respect to s.
+  - In such a situation, a minimal distance set can be defined.
+    - i.e. a subset of the actual legal symbol set and it contain all those symbols whose codons are hamming closet to the codon of the illegal symbol s.
+    - With respect to the illegal symbol, such a symbol is called the closet.
+    - Depending on the genetic code, there can be more than one such symbol.
+
+- Each genotype gets mapped always into exactly one phenotype.
+  - Otherwise, a genotype very likely would get associated with different phenotypes and thus with different fitness values over time.
+  - This would not allow for a proper fitness related selection on genospace.
+
+- For GP/GPM approach, creation generates random individual as random binary string which consists of n codons.
+- For common GP approach, creation builds up a syntactically legal random symbol sequence which consists of at least n symbols.
+  - i.e. start with empty string, first symbol selected from the set of symbols which are legal first symbols etc etc
+
+- **coupled mutation**
+  - Applied to genotype.
+  - Selects codon.
+  - Flips two randomly selected different bits in that codon.
+  - This operator reflects the fact that some mutations tend to change nucleic acids in a coupled sort of way.
+
+- **unrestricted mutation**
+  - Selects codon.
+  - Flips one randomly selected bit with a 0.5 probability or 2 randomly selected bits with a 0.35 probability, or 3 randomly selected different bits with 0.1 probability, or 4 randomly selected different bits with a 0.05 probability.
+  - The probability distribution reflects natural principle of variation: small changes more often than big changes.
+
+- **common GP approach**
+  - Mutation selects a symbol in the sequence.
+  - Then replaces this symbol by another randomly selected symbol which is legal in the respective position.
+
+- Note that the mutation operator does not produce vast changes in the genotype by replacing complete syntactical units.
+  - We feel that the presented operator shows a behaviour close to the natural mutation and thus better matches the spirit of artificial evolution processes.
+
+- **Results**
+  - unrestricted mutation performed best since it seems to be able to escape local optimum (since it can mutate a whole codon).
+  - Coupled mutation performs better than the common GP approach.
