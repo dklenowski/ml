@@ -1,3 +1,8 @@
+Categories: tensorflow
+Tags: basics
+	  tensorflow
+	  python
+
 # Tensorflow
 
 All the notes on this page are based on Tensorflow 1.4.

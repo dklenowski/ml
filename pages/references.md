@@ -2,10 +2,7 @@ Categories: introduction
 Tags: intro
 	  beginning
 
-## Getting your head around Neural Networks
-
-There has been an explosion in AI/deep learning/Neural Networks etc over the last couple of years. Having studied (and soon forgot about it) Artifical Intelligence, I thought now might be a good time to get back into it. I was quickly overwhelmed with the sheer volume of information about AI and also the levels of complexity some of the research had reached. 
-
+# Introduction
 
 ## Neural Networks
 

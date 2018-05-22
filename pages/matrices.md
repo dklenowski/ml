@@ -138,7 +138,7 @@ $latex \underline{A}+\underline{B}=\underline{B}+\underline{A} $
 
 ### Associative
 
-If $latex \underline{A} $, $latex \underline{B} $ and $latex \underline{C} $ are m*n matrices, then:
+If $latex \underline{A} $, $latex \underline{B} $ and $latex \underline{C} $ are `m*n` matrices, then:
 
 $latex \underline{A}+(\underline{B}+\underline{C})=(\underline{A}+\underline{B})+\underline{C} $
 
