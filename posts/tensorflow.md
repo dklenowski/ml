@@ -7,6 +7,32 @@ Tags: basics
 
 All the notes on this page are based on Tensorflow 1.4.
 
+# Imports
+
+    import tensorflow as tf
+    import numpy as np
+
+
+# Running
+
+## One Off
+
+    y = tf.where(...)
+    sess = tf.Session()
+    outs = sess.run(y)
+    sess.close()
+    
+    print "out=%s" % outs
+
+## Iterative
+
+    init = tf.global_variables_initializer()
+    with tf.Session() as sess:
+        sess.run(init)
+        y = sess.run(out)
+
+
+
 # Useful primitives
 
 ## `where`

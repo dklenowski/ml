@@ -2,9 +2,18 @@ Categories: introduction
 Tags: intro
 	  beginning
 
-# Introduction
 
-## Neural Networks
+## Machine Learning
 
-Patrick Winston MIT intro to Neural Networks - http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010
+## Theory
+
+https://github.com/dklenowski/links/blob/master/ml-theory.md
+
+## Code Samples
+
+https://github.com/dklenowski/links/blob/master/ml-code.md
+
+## Datasets
+
+https://github.com/dklenowski/links/blob/master/ml-datasets.md
 

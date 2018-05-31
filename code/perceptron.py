@@ -7,8 +7,11 @@ import matplotlib.pyplot as plt
 
 # Hyper parameters
 eta = 0.4  # learning rate parameter
-epsilon = 1e-03 # minimum accepted error
-max_epochs = 100 # Maximum Epochs
+epsilon = 1e-03  # minimum accepted error
+max_epochs = 100  # Maximum Epochs
+
+debug = True
+
 
 # Training Data  Y = AB + BC, sum of two linear functions.
 T, F = 1., 0.
@@ -36,6 +39,13 @@ Y = [
 
 # Threshold Activation function
 def threshold(x):
+    """
+    Simpliest threshold activation function.
+    i.e. generates a vector containing all the values in `x` that are less than 1.
+
+    :param x:
+    :return:
+    """
     cond = tf.less(x, tf.zeros(tf.shape(x), dtype=x.dtype))
     out = tf.where(cond, tf.zeros(tf.shape(x)), tf.ones(tf.shape(x)))
     return out
@@ -57,10 +67,17 @@ with tf.Session() as sess:
     while err > epsilon and epoch < max_epochs:
         epoch += 1
         err, _ = sess.run([mean_error, train])
-        print "train=%s" % train.eval()
-        print "dw=%s" % dW.eval()
-        print "out=%s" % Y_hat.eval()
         print('epoch: {0}  mean error: {1}'.format(epoch, err))
+        if debug:
+            print("train={0}\ndw={1}\nout={2}".format(train.eval(), dW.eval(), Y_hat.eval()))
+
 
     print('Training complete')
+
+    # TODO: final run and print output.
+    #plt.xlabel('Activity of Neuron')
+    #plt.ylabel('Output of Neuron')
+    #plt.title('Threshold Activation Function')
+    #plt.plot(h, Y_hat)
+    #plt.show()
 
