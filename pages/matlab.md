@@ -1,4 +1,4 @@
-Categories: matlab
+Categories: graphing
 Tags: matlab
 	  graph
 	  3d

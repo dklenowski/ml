@@ -63,7 +63,6 @@ Tags: R
 
 - To solve for `x` in `b=Ax`
 
-
         A = matrix( c(0, 1, -2, 1, 0, 1, -2, 1, 0), nrow=3, ncol=3)
         b = matrix( c(-1, -1, 1), nrow=3, ncol=1)
         solve(A, b)
