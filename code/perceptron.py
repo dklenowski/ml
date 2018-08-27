@@ -75,6 +75,9 @@ with tf.Session() as sess:
     print('Training complete')
 
     # TODO: final run and print output.
+    print "Final weight=%s" % W.eval()
+
+
     #plt.xlabel('Activity of Neuron')
     #plt.ylabel('Output of Neuron')
     #plt.title('Threshold Activation Function')
